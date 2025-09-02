@@ -1,0 +1,58 @@
+<header class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="card-title">Novo veiculo</h5>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+</header>
+<section class="card-body" ngbAutofocus>
+
+    <form [formGroup]="formStorage" class="row g-4">
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="name" placeholder="Digite o nome do veiculo" formControlName="name">
+            <label class="form-label ps-4" for="name">Nome</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="brand" placeholder="Digite a marca do veiculo" formControlName="brand">
+            <label class="form-label ps-4" for="brand">Marca</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="model" placeholder="Digite o modelo do veiculo" formControlName="model">
+            <label class="form-label ps-4" for="model">Modelo</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="color" placeholder="Digite o nome do veiculo" formControlName="color">
+            <label class="form-label ps-4" for="color">Cor</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="number" id="yearFabrication" placeholder="Digite o ano de fabricação do veiculo" formControlName="yearFabrication">
+            <label class="form-label ps-4" for="yearFabrication">Ano de fabricação</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="number" id="yearModel" placeholder="Digite o ano do veiculo" formControlName="yearModel">
+            <label class="form-label ps-4" for="yearModel">Ano do veiculo</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="number" id="km" placeholder="Digite a quilometragem do veiculo" formControlName="km">
+            <label class="form-label ps-4" for="km">Quilometragem</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="number" id="price" placeholder="Digite o preco do veiculo" formControlName="price">
+            <label class="form-label ps-4" for="price">Preco</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="description" placeholder="Digite a descricao do veiculo" formControlName="description">
+            <label class="form-label ps-4" for="description">Descricao</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="text" id="status" placeholder="Digite o status do veiculo" formControlName="status">
+            <label class="form-label ps-4" for="status">Status</label>
+        </fieldset>
+        <fieldset class="form-floating col-lg-6">
+            <input class="form-control" type="file" id="image" placeholder="Digite a imagem do veiculo" formControlName="image">
+            <label class="form-label ps-4" for="image">Imagem</label>
+        </fieldset>
+    </form>
+
+</section>
+<footer class="card-footer d-flex align-items-center justify-content-end gap-2 w-100">
+    <button class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cancelar</button>
+    <app-button-default (click)="[]" >Salvar</app-button-default>
+</footer>

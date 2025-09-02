@@ -1,0 +1,11 @@
+button {
+    background-color: var(--colorBaseTertiary);
+    color: var(--colorTextButons);
+}
+
+button:hover, button:active {
+    background-color: var(--dark);
+    color: var(--colorTextButons);
+    transition: 0.3s;
+    border: none !important;
+}

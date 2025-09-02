@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap justify-content-start gap-4 px-4 py-3">
+
+    @for (itemDashboard of mockInfoDashboard; track $index) {
+        <div class="card shadow-sm border-0 h-100 min-w-300px flex-grow-1">
+        <div class="card-body text-center">
+            <h6 class="text-muted">{{itemDashboard.title}}</h6>
+            <div class="d-flex flex-nowrap align-items-baseline justify-content-center gap-2">
+                <h3 class="fw-semibold">{{itemDashboard.prefix}}</h3>
+                <h2 class="fw-bold">{{itemDashboard.value}}</h2>
+                <h3 class="fw-semibold">{{itemDashboard.suffix}}</h3>
+            </div>
+        </div>
+        </div>
+    
+    }
+
+</div>

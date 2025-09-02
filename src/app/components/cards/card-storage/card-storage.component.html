@@ -1,0 +1,16 @@
+<img class="w-100 h-300px object-fit-cover" [src]="carInfo().image" alt="Imagem do veiculo {{carInfo().name}}">
+<section class="card-body d-flex flex-row justify-content-between g-4 fs-9">
+    <div class="d-flex flex-column gap-2">
+        <span class="fw-semibold text-danger fs-11">{{carInfo().name}}</span>
+        <span class="fw-normal fs-10">{{carInfo().brand}}</span>
+        <span>{{carInfo().model}}</span>
+    </div>
+    <div class="d-flex flex-column align-items-end gap-2">
+        <span>{{carInfo().km.toLocaleString('pt-BR')}} km</span>
+        <span>{{carInfo().color}}</span>
+        <span>{{carInfo().yearFabrication}} / {{carInfo().yearModel}}</span>
+    </div>
+</section>
+<footer class="card-footer d-flex justify-content-end">
+    <span class="fw-semibold fs-12">{{price}}</span>
+</footer>

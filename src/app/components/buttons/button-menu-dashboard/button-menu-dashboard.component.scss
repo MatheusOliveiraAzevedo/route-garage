@@ -1,0 +1,19 @@
+button {
+    box-shadow: 4px 4px 7px var(--sobraBorda);
+    z-index: 100;
+    background-color: var(--colorBgButtons);
+    color: var(--colorTextButons);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--colorBgButtonsHover) !important;
+    color: var(--colorTextButons);
+}
+
+button:active {
+    background-color: var(--colorBgButtonsActive) !important;
+    color: var(--colorTextButons) !important;
+    outline: none !important;
+    border: none !important;
+}

@@ -1,0 +1,16 @@
+<aside class="d-flex flex-column align-items-start justify-content-start gap-2 p-3">
+    <section class="d-flex flex-column align-items-center justify-content-center gap-2">
+        <app-image-default class="w-30" urlImage="assets/avatar/user-blank.png" altImage="Imagem do logo Routa Garage"></app-image-default>
+        <span class="text-center fs-11 text-break">Nome do usuario</span>
+        <small class="fs-9 text-break">emaildousuario&#64;routagarage.com.br</small>
+    </section>
+    <hr class="w-100">
+    <nav class="d-flex flex-column align-items-start justify-content-start gap-2">
+        @for (link of links; track $index) {
+            <a class="item-side-menu text-decoration-none" [routerLink]="link.route" routerLinkActive="active">
+                <i class="icon-selected bi bi-caret-right-fill"></i>
+                {{link.name}}
+            </a>
+        }
+    </nav>
+</aside>
