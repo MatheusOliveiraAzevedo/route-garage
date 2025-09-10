@@ -1,3 +1,3 @@
 # Route Garage
 
-Um template para gerenciamento de cadastro de veiculos, vendas, cadastro de clientes e fornecedores.
+Um template em angular para gerenciamento de cadastro de veiculos, vendas, cadastro de clientes e fornecedores.
