@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-customers',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CustomersComponent {
 
+  @HostBinding('class') class = 'd-flex flex-column gap-4 h-100 w-100'
 
 }

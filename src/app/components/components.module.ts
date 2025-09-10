@@ -10,6 +10,8 @@ import { ListStorageComponent } from './list-storage/list-storage.component';
 import { CardStorageComponent } from './cards/card-storage/card-storage.component';
 import { ModalStorageComponent } from './modals/modal-storage/modal-storage.component';
 import { ReactiveFormsModule, ɵInternalFormsSharedModule } from "@angular/forms";
+import { TableCustomersComponent } from './tables/table-customers/table-customers.component';
+import { TagLabelComponent } from './tag-label/tag-label.component';
 
 
 
@@ -23,7 +25,9 @@ import { ReactiveFormsModule, ɵInternalFormsSharedModule } from "@angular/forms
     InfoDashboardComponent,
     ListStorageComponent,
     CardStorageComponent,
-    ModalStorageComponent
+    ModalStorageComponent,
+    TableCustomersComponent,
+    TagLabelComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,9 @@ import { ReactiveFormsModule, ɵInternalFormsSharedModule } from "@angular/forms
     InfoDashboardComponent,
     ListStorageComponent,
     CardStorageComponent,
-    ModalStorageComponent
+    ModalStorageComponent,
+    TableCustomersComponent,
+    TagLabelComponent
   ]
 })
 export class ComponentsModule { }

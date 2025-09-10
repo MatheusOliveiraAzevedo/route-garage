@@ -10,23 +10,34 @@ body {
 
 $primary: #c50404;
 $secondary: #5a5a5a;
-$success: #28a745;
+$success: #4ac466;
 $danger: #FF0000;
 $warning: #ffc107;
 $info: #17a2b8;
-$light: #f8f9fa;
+$light: #f2f2f3;
 $dark: #343a40;
+
+// cores light
+$primary-light: #c5040416;
+$secondary-light: #5a5a5a3d;
+$success-light: #5af87f50;
+$danger-light: #ff000038;
+$warning-light: #ffc10742;
+$info-light: #17a3b841;
+$light-light: #343a4049;
+$dark-light: #343a4049;
+// cores light
 
 :root {
   // cores padrão
-  --primary: #c50404;
-  --secondary: #5a5a5a;
-  --success: #28a745;
-  --danger: #FF0000;
-  --warning: #ffc107;
-  --info: #17a2b8;
-  --light: #f8f9fa;
-  --dark: #343a40;
+  --primary: $primary;
+  --secondary: $secondary;
+  --success: $success;
+  --danger: $danger;
+  --warning: $warning;
+  --info: $info;
+  --light: $light;
+  --dark: $dark;
   // cores padrão
 
   // sombras
@@ -93,6 +104,28 @@ body.theme-dark {
   --colorBgButtonsActive: #895252;
 }
 
+$utilities-bg-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning,
+  "info": $info,
+  "light": $light,
+  "dark": $dark
+);
+
+$utilities-bg-colors-light: (
+  "primary": $primary-light,
+  "secondary": $secondary-light,
+  "success": $success-light,
+  "danger": $danger-light,
+  "warning": $warning-light,
+  "info": $info-light,
+  "light": $light-light,
+  "dark": $dark-light
+);
+
 $custom-widths-height: (
     10px: 10px,
     20px: 20px,
@@ -106,6 +139,7 @@ $custom-widths-height: (
     100px: 100px,
     125px: 125px,
     150px: 150px,
+    180px: 180px,
     200px: 200px,
     250px: 250px,
     300px: 300px,
@@ -214,6 +248,12 @@ $utilities: (
     class: "max-w",
     values: $custom-widths-height
   ),
+  "background-color": (
+      property: background-color,
+      class: bg,
+      local-vars: ("bg-opacity": 1),
+      values: $utilities-bg-colors
+  )
 );
 
 .icon-selected {
@@ -234,6 +274,55 @@ $utilities: (
     .icon-selected {
         display: inline;
     }
+}
+
+@each $name, $color in $utilities-bg-colors-light {
+
+  .bg-hover-#{$name}:hover  {
+    background-color: $color !important;
+  }
+
+  .bg-hover-#{$name}:hover td  {
+    background-color: $color !important;
+  }
+
+  .bg-hover-#{$name}:hover th  {
+    background-color: $color !important;
+  }
+
+  .bg-light-#{$name}  {
+    background-color: $color !important;
+  }
+
+  .bg-light-#{$name} td  {
+    background-color: $color !important;
+  }
+
+  .bg-light-#{$name} th  {
+    background-color: $color !important;
+  }
+  
+}
+
+@each $name, $color in $utilities-bg-colors {
+
+  .bg-#{$name} td  {
+    background-color: $color !important;
+  }
+
+  .bg-#{$name} th  {
+    background-color: $color !important;
+  }
+
+  .bg-light-#{$name}.badge, .bg-hover-#{$name}:hover td  {
+    color: $color !important;
+    font-weight: 500;
+  }
+  
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
 
 .card {

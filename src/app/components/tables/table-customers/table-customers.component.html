@@ -1,0 +1,32 @@
+<!-- 
+<div class="w-100px h-100px bg-secondary"></div>
+<div class="w-100px h-100px bg-hover-danger"></div> -->
+
+<section class="card rounded-4 table-responsive">
+    <table class="table m-0">
+        <thead>
+            <tr class="text-muted bg-light">
+                <th class="p-2 min-w-150px">Nome</th>
+                <th class="p-2 min-w-150px">Email</th>
+                <th class="p-2 min-w-150px">Telefone</th>
+                <th class="p-2 min-w-150px">Endereço</th>
+                <th class="p-2 min-w-150px">Status</th>
+                <th class="p-2 min-w-200px">Data de Nascimento</th>
+                <th class="p-2 min-w-150px">Gênero</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (customer of customers; track $index) {
+                <tr class="bg-hover-primary">
+                    <td class="px-2 py-3 border-0">{{customer.name}}</td>
+                    <td class="px-2 py-3 border-0">{{customer.email}}</td>
+                    <td class="px-2 py-3 border-0">{{customer.phone}}</td>
+                    <td class="px-2 py-3 border-0">{{customer.address}}</td>
+                    <td class="px-2 py-3 border-0"><app-tag-label>{{customer.status}}</app-tag-label></td>
+                    <td class="px-2 py-3 border-0">{{customer.birthDate}}</td>
+                    <td class="px-2 py-3 border-0">{{customer.gender}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
