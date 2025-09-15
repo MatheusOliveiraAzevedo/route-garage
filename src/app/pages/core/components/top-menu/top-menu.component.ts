@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ThemeMode, ThemeModeIcon } from '../../../../shared/models/theme-mode';
 import { ThemeModeService } from '../../../../shared/services/theme-mode.service';
 import { Subscription } from 'rxjs';
+import { MenuMobileService } from '../../../../shared/services/menu-mobile.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -12,7 +13,8 @@ import { Subscription } from 'rxjs';
 export class TopMenuComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
-    private themeModeService: ThemeModeService
+    private themeModeService: ThemeModeService,
+    private menuMobileService: MenuMobileService
   ) {}
 
   @HostBinding('class') class = 'd-flex flex-row align-items-center justify-content-between ps-4 pe-3 py-3 h-80px w-100';
@@ -46,6 +48,10 @@ export class TopMenuComponent implements OnInit, OnDestroy {
 
   returnIconThemeMode() {
     return ThemeModeIcon[this.mode];
+  }
+
+  openSideMenu() {
+    this.menuMobileService.toggleMenu();
   }
 
 }
