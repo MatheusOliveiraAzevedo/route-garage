@@ -8,7 +8,7 @@ export class MenuMobileService {
 
   constructor() { }
 
-  showMenu: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  showMenu: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true)
 
   toggleMenu() {
     this.showMenu.next(!this.showMenu.value)

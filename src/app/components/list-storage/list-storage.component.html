@@ -5,7 +5,7 @@
     <div class="row g-4">
         @if (storageCar() && storageCar().length > 0) {   
             @for (car of storageCar(); track $index) {
-                <div class="col-md-6 col-xl-4">
+                <div class="col-sm-6 col-xl-4">
                     <app-card-storage [carInfo]="car"></app-card-storage>
                 </div>
             }
