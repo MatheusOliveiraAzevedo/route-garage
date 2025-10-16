@@ -1,6 +1,6 @@
-<!-- 
-<div class="w-100px h-100px bg-secondary"></div>
-<div class="w-100px h-100px bg-hover-danger"></div> -->
+<div class="w-100 d-flex justify-content-end">
+    <app-button-default (click)="openModal()">Novo cliente</app-button-default>
+</div>
 
 <section class="card rounded-4 table-responsive">
     <table class="table m-0">
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             @for (customer of customers; track $index) {
-                <tr class="bg-hover-primary">
+                <tr class="bg-hover-primary bg-teste">
                     <td class="px-2 py-3 border-0">{{customer.name}}</td>
                     <td class="px-2 py-3 border-0">{{customer.email}}</td>
                     <td class="px-2 py-3 border-0">{{customer.phone}}</td>
@@ -30,3 +30,10 @@
         </tbody>
     </table>
 </section>
+
+
+<ng-template #modalCustomersComponent>
+    <app-modal-base title="Novo cliente">
+        <app-modal-customers></app-modal-customers>
+    </app-modal-base>
+</ng-template>

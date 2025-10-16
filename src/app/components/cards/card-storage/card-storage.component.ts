@@ -19,4 +19,8 @@ export class CardStorageComponent implements OnChanges {
       }
   }
 
+  onImageError(event: any) {
+    event.target.src = 'assets/placeholder.jpg'
+  }
+
 }

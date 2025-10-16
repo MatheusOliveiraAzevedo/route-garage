@@ -7,4 +7,6 @@ import { Component, input } from '@angular/core';
 })
 export class ButtonDefaultComponent {
 
+  large = input<boolean>(false);
+
 }

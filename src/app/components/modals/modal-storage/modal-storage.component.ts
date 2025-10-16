@@ -14,7 +14,6 @@ export class ModalStorageComponent implements OnInit {
       private fb: FormBuilder
     ) { }
 
-  @HostBinding('class') class = 'card'
   formStorage!: FormGroup
 
   ngOnInit(): void {

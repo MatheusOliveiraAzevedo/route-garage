@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-table-customers',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class TableCustomersComponent {
 
+  constructor(
+    private modalService: NgbModal
+  ) {}
+
+  @HostBinding('class') class = 'd-flex flex-column gap-4 h-100 w-100'
+  @ViewChild('modalCustomersComponent') modaCustomers!: TemplateRef<any>
   customers = [
     {
       name: 'João',
@@ -126,5 +133,12 @@ export class TableCustomersComponent {
       updatedAt: '2022-09-09'
     }
   ]
+
+
+  openModal() {
+    const modalRef = this.modalService.open(this.modaCustomers, {
+      size: 'xl'
+    });
+  }
 
 }

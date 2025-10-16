@@ -53,7 +53,7 @@ $dark-light: #343a4049;
 
   // cores base
   --colorBasePrimary: #d40000;
-  --colorBaseSecondary: #d4000044;
+  --colorBaseSecondary: #a7878744;
   --colorBaseTertiary: #672323;
   --colorBaseQuaternary: #d4000013;
   --colorBgContent: #efe5e5;
@@ -63,6 +63,7 @@ $dark-light: #343a4049;
   --colorBgButtons: #8e0e0ed8;
   --colorBgButtonsHover: #8e0e0e;
   --colorBgButtonsActive: var(--colorBasePrimary);
+  --colorBgTable: #f0f0f0;
 }
 
 body.theme-dark {
@@ -85,13 +86,13 @@ body.theme-dark {
   // textos
   --colorTextButons: #ffffff;
   --colorTextMuted: #cbd4debf;
-  --colorLinksSideMenu: #612121;
+  --colorLinksSideMenu: #ffffff;
   --colorGeneralTexts: #ffffff;
   // textos
 
   // cores base
   --colorBasePrimary: #8e0e0e;
-  --colorBaseSecondary: #00000082;
+  --colorBaseSecondary: #7d7d7d82;
   --colorBaseTertiary: #672323;
   --colorBaseQuaternary: #00000031;
   --colorBgContent: #000000d2;
@@ -102,6 +103,7 @@ body.theme-dark {
   --colorBgButtons: #8f0202cb;
   --colorBgButtonsHover: #8f0202;
   --colorBgButtonsActive: #895252;
+  --colorBgTable: #ddd7d7;
 }
 
 $utilities-bg-colors: (
@@ -112,7 +114,8 @@ $utilities-bg-colors: (
   "warning": $warning,
   "info": $info,
   "light": $light,
-  "dark": $dark
+  "dark": $dark,
+  "teste": var(--colorBgTable)
 );
 
 $utilities-bg-colors-light: (
@@ -216,43 +219,51 @@ $utilities: (
   "width": (
     property: "width",
     class: "w",
-    values: $custom-widths-height
+    values: $custom-widths-height,
+    responsive: true
   ),
   "height": (
     property: "height",
     class: "h",
-    values: $custom-widths-height
+    values: $custom-widths-height,
+    responsive: true
   ),
   "gap": (
     property: "gap",
     class: "gap",
-    values: $spacers
+    values: $spacers,
+    responsive: true
   ),
   "font-size": (
     property: "font-size",
     class: "fs",
-    values: $font-sizes
+    values: $font-sizes,
+    responsive: true
   ),
   "font-weight": (
     property: "font-weight",
     class: "fw",
-    values: $font-weight
+    values: $font-weight,
+    responsive: true
   ),
   "min-viewport-width": (
     property: min-width,
     class: "min-w",
-    values: $custom-widths-height
+    values: $custom-widths-height,
+    responsive: true
   ),
   "max-viewport-width": (
     property: max-width,
     class: "max-w",
-    values: $custom-widths-height
+    values: $custom-widths-height,
+    responsive: true
   ),
   "background-color": (
-      property: background-color,
-      class: bg,
-      local-vars: ("bg-opacity": 1),
-      values: $utilities-bg-colors
+    property: background-color,
+    class: bg,
+    local-vars: ("bg-opacity": 1),
+    values: $utilities-bg-colors,
+    responsive: true
   )
 );
 
@@ -263,6 +274,7 @@ $utilities: (
 .item-side-menu {
   color: var(--colorLinksSideMenu);
   border-radius: 5px;
+  font-weight: 400;
   padding: 5px 8px;
   transition: background-color 0.3s;
 }
@@ -338,6 +350,19 @@ $utilities: (
     min-height: 60px;
     background-color: var(--colorBaseQuaternary);
   }
+}
+
+.noArrowDropdown[ngbDropdownToggle]::after {
+  display: none !important;
+}
+
+.positionOnScreen {
+  position: absolute;
+  bottom: 300px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 @import "bootstrap/scss/bootstrap";

@@ -1,0 +1,11 @@
+<header class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="card-title">{{title()}}</h5>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+</header>
+<section class="card-body" ngbAutofocus>
+    <ng-content></ng-content>
+</section>
+<footer class="card-footer d-flex align-items-center justify-content-end gap-2 w-100">
+    <button class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cancelar</button>
+    <app-button-default (click)="[]" >Salvar</app-button-default>
+</footer>

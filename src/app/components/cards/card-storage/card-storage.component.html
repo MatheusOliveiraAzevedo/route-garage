@@ -1,4 +1,4 @@
-<img class="w-100 h-300px object-fit-cover" [src]="carInfo().image" alt="Imagem do veiculo {{carInfo().name}}">
+<img class="w-100 h-300px object-fit-cover" [src]="carInfo().image" alt="Imagem do veiculo {{carInfo().name}}" (error)="onImageError($event)">
 <section class="card-body d-flex flex-row justify-content-between g-4 fs-9">
     <div class="d-flex flex-column gap-2">
         <span class="fw-semibold text-danger fs-11">{{carInfo().name}}</span>

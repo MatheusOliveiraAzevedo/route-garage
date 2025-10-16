@@ -12,6 +12,8 @@ import { ModalStorageComponent } from './modals/modal-storage/modal-storage.comp
 import { ReactiveFormsModule, ɵInternalFormsSharedModule } from "@angular/forms";
 import { TableCustomersComponent } from './tables/table-customers/table-customers.component';
 import { TagLabelComponent } from './tag-label/tag-label.component';
+import { ModalBaseComponent } from './modals/modal-base/modal-base.component';
+import { ModalCustomersComponent } from './modals/modal-customers/modal-customers.component';
 
 
 
@@ -27,7 +29,9 @@ import { TagLabelComponent } from './tag-label/tag-label.component';
     CardStorageComponent,
     ModalStorageComponent,
     TableCustomersComponent,
-    TagLabelComponent
+    TagLabelComponent,
+    ModalBaseComponent,
+    ModalCustomersComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +49,8 @@ import { TagLabelComponent } from './tag-label/tag-label.component';
     CardStorageComponent,
     ModalStorageComponent,
     TableCustomersComponent,
-    TagLabelComponent
+    TagLabelComponent,
+    ModalBaseComponent
   ]
 })
 export class ComponentsModule { }

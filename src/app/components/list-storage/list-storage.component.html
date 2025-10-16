@@ -1,5 +1,6 @@
-
-<app-button-default (click)="openModal()">Novo</app-button-default>
+<div class="w-100 d-flex justify-content-end">
+    <app-button-default (click)="openModal()">Novo veiculo</app-button-default>
+</div>
 
 <section class="container">
     <div class="row g-4">
@@ -15,5 +16,7 @@
 
 
 <ng-template #modalStorage>
-    <app-modal-storage></app-modal-storage>
+    <app-modal-base title="Novo veiculo">
+        <app-modal-storage></app-modal-storage>
+    </app-modal-base>
 </ng-template>

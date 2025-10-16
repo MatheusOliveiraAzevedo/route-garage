@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
 
   loadForm() {
     this.formAuth = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['exemplo@routagarage.com.br', Validators.required],
+      password: ['123456', Validators.required]
     });
   }
 

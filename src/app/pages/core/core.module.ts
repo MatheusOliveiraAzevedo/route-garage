@@ -8,6 +8,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ContentComponent } from './content/content.component';
 import { Routing } from '../routesPages';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ComponentsModule
-  ]
+    ComponentsModule,
+    NgbModule
+]
 })
 export class CoreModule { }

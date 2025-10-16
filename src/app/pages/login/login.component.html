@@ -8,11 +8,11 @@
     <form [formGroup]="formAuth" (ngSubmit)="submitLogin()" class="d-flex flex-column justify-content-center align-items-center gap-5 w-80" >
         <fieldset class="form-floating w-100">
             <input class="form-control" type="email" id="email" formControlName="email" placeholder="name@example.com">
-            <label  for="email">E-mail</label>
+            <label class="fw-normal text-primary" for="email">E-mail</label>
         </fieldset>
         <fieldset class="form-floating w-100">
             <input class="form-control" type="password" id="password" formControlName="password" placeholder="password">
-            <label for="password">Senha</label>
+            <label class="fw-normal text-primary" for="password">Senha</label>
         </fieldset>
         <button type="submit" class="btn btn-primary btn-lg w-100">Entrar</button>
     </form>

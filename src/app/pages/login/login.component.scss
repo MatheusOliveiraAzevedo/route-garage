@@ -5,3 +5,8 @@
 .section-logo {
     background-image: url('/assets/backgrounds/bg-login.png');
 }
+
+.form-control::content {
+    font-weight: 300;
+    letter-spacing: 1px;
+}

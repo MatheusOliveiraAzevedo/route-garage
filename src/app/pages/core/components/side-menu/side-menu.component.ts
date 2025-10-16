@@ -2,6 +2,7 @@ import { Component, HostBinding, HostListener, OnChanges, OnDestroy, OnInit, Sim
 import { linksSideMenu } from '../../../../shared/models/links-menus';
 import { MenuMobileService } from '../../../../shared/services/menu-mobile.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -11,7 +12,8 @@ import { Subscription } from 'rxjs';
 export class SideMenuComponent implements OnInit, OnDestroy {
 
   constructor(
-    private menuMobileService: MenuMobileService
+    private menuMobileService: MenuMobileService,
+    private router: Router
   ) {}
 
   @HostBinding('class.active') isActive = false
@@ -34,6 +36,11 @@ export class SideMenuComponent implements OnInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.isActive = window.innerWidth > 767 ? true : false
+  }
+
+  logoff() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 
 }
