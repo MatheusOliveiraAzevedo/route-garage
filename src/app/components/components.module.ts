@@ -14,6 +14,8 @@ import { TableCustomersComponent } from './tables/table-customers/table-customer
 import { TagLabelComponent } from './tag-label/tag-label.component';
 import { ModalBaseComponent } from './modals/modal-base/modal-base.component';
 import { ModalCustomersComponent } from './modals/modal-customers/modal-customers.component';
+import { FooterModalComponent } from './modals/footer-modal/footer-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -31,12 +33,14 @@ import { ModalCustomersComponent } from './modals/modal-customers/modal-customer
     TableCustomersComponent,
     TagLabelComponent,
     ModalBaseComponent,
-    ModalCustomersComponent
+    ModalCustomersComponent,
+    FooterModalComponent
   ],
   imports: [
     CommonModule,
     ɵInternalFormsSharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
 ],
   exports: [
     ButtonDefaultComponent,

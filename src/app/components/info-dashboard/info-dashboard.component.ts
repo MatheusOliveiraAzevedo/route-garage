@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { InfoDashboard } from '../../shared/models/dashboard-models';
-import { mockInfoDashboard } from '../../shared/mocks/mocks';
+import { mockInfoDashboard } from '../../../assets/mocks/mocks';
 
 @Component({
   selector: 'app-info-dashboard',

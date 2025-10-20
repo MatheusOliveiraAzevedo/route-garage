@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomersService } from '../../../shared/services/customers.service';
+import { catchError, of } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal-customers',
@@ -9,10 +12,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ModalCustomersComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private customersService: CustomersService,
+    private modalService: NgbModal
   ) { }
 
-    formCustomers!: FormGroup
+  @Output() reloadCustomers = new EventEmitter()
+  formCustomers!: FormGroup
 
     ngOnInit(): void {
       this.loadForm()
@@ -23,36 +29,50 @@ export class ModalCustomersComponent implements OnInit {
         name: [null, Validators.compose([
           Validators.required
         ])],
-        brand: [null, Validators.compose([
+        email: [null, Validators.compose([
           Validators.required
         ])],
-        model: [null, Validators.compose([
+        phone: [null, Validators.compose([
           Validators.required
         ])],
-        color: [null, Validators.compose([
-          Validators.required
-        ])],
-        yearFabrication: [null, Validators.compose([
-          Validators.required
-        ])],
-        yearModel: [null, Validators.compose([
-          Validators.required
-        ])],
-        km: [null, Validators.compose([
-          Validators.required
-        ])],
-        price: [null, Validators.compose([
-          Validators.required
-        ])],
-        description: [null, Validators.compose([
+        address: [null, Validators.compose([
           Validators.required
         ])],
         status: [null, Validators.compose([
           Validators.required
         ])],
-        image: [null, Validators.compose([
+        birthDate: [null, Validators.compose([
           Validators.required
         ])],
+        gender: [null, Validators.compose([
+          Validators.required
+        ])],
+        cpf: [null, Validators.compose([
+          Validators.required
+        ])],
+        rg: [null, Validators.compose([
+          Validators.required
+        ])]
+      })
+    }
+
+    save() {
+      if (this.formCustomers.invalid) {
+        alert('Preencha todos os campos')
+        this.formCustomers.markAllAsTouched();
+        return;
+      }
+      this.customersService.addCustomers(this.formCustomers.value).pipe(
+        catchError(() => {
+          alert('Não foi possível cadastrar o cliente')
+          return of(null)
+        })
+      )
+      .subscribe(() => {
+        this.reloadCustomers.emit();
+        alert('Cliente cadastrado com sucesso!');
+        this.modalService.dismissAll();
+        this.formCustomers.reset()
       })
     }
 

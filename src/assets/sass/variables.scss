@@ -1,0 +1,97 @@
+$primary: #c50404;
+$secondary: #5a5a5a;
+$success: #4ac466;
+$danger: #FF0000;
+$warning: #ffc107;
+$info: #17a2b8;
+$light: #f2f2f3;
+$dark: #343a40;
+
+// cores light
+$primary-light: #c5040416;
+$secondary-light: #5a5a5a3d;
+$success-light: #5af87f50;
+$danger-light: #ff000038;
+$warning-light: #ffc10742;
+$info-light: #17a3b841;
+$light-light: #343a4049;
+$dark-light: #343a4049;
+// cores light
+
+:root {
+  // cores padrão
+  --primary: $primary;
+  --secondary: $secondary;
+  --success: $success;
+  --danger: $danger;
+  --warning: $warning;
+  --info: $info;
+  --light: $light;
+  --dark: $dark;
+  // cores padrão
+
+  // sombras
+  --sobraBorda: #00000029;
+  // sombras
+
+  // textos
+  --colorTextButons: #e0d5d5;
+  --colorTextMuted: #212529bf;
+  --colorLinksSideMenu: var(--colorBaseTertiary);
+  --colorGeneralTexts: #000000a9;
+  // textos
+
+  // cores base
+  --colorBasePrimary: #d40000;
+  --colorBaseSecondary: #a7878744;
+  --colorBaseTertiary: #672323;
+  --colorBaseQuaternary: #d4000013;
+  --colorBgContent: #efe5e5;
+  // cores base
+
+
+  --colorBgButtons: #8e0e0ed8;
+  --colorBgButtonsHover: #8e0e0e;
+  --colorBgButtonsActive: var(--colorBasePrimary);
+  --colorBgTable: #f0f0f0;
+}
+
+body.theme-dark {
+
+  // cores padrão
+  --primary: #6a9acd;
+  --secondary: #1b263b;
+  --success: #21c47b;
+  --danger: #ff4c4c;
+  --warning: #ffd166;
+  --info: #118ab2;
+  --light: #222831;
+  --dark: #0f0f0f;
+  // cores padrão
+
+  // sombras
+  --sobraBorda: #7c7c7c29;
+  // sombras
+
+  // textos
+  --colorTextButons: #ffffff;
+  --colorTextMuted: #cbd4debf;
+  --colorLinksSideMenu: #ffffff;
+  --colorGeneralTexts: #ffffff;
+  // textos
+
+  // cores base
+  --colorBasePrimary: #8e0e0e;
+  --colorBaseSecondary: #7d7d7d82;
+  --colorBaseTertiary: #672323;
+  --colorBaseQuaternary: #00000031;
+  --colorBgContent: #000000d2;
+  // cores base
+
+
+
+  --colorBgButtons: #8f0202cb;
+  --colorBgButtonsHover: #8f0202;
+  --colorBgButtonsActive: #895252;
+  --colorBgTable: #ddd7d7;
+}

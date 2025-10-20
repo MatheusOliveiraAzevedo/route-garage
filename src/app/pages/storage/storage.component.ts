@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { mockStorageCars } from '../../shared/mocks/mocks';
+import { mockStorageCars } from '../../../assets/mocks/mocks';
 import { Car } from '../../shared/models/storage-models';
 
 @Component({

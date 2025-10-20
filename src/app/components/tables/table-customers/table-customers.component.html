@@ -2,7 +2,7 @@
     <app-button-default (click)="openModal()">Novo cliente</app-button-default>
 </div>
 
-<section class="card rounded-4 table-responsive">
+<section class="card rounded-4 table-responsive w-100">
     <table class="table m-0">
         <thead>
             <tr class="text-muted bg-light">
@@ -16,13 +16,13 @@
             </tr>
         </thead>
         <tbody>
-            @for (customer of customers; track $index) {
+            @for (customer of customers | paginate: { itemsPerPage: 8, currentPage: paginaAtual };; track $index) {
                 <tr class="bg-hover-primary bg-teste">
                     <td class="px-2 py-3 border-0">{{customer.name}}</td>
                     <td class="px-2 py-3 border-0">{{customer.email}}</td>
                     <td class="px-2 py-3 border-0">{{customer.phone}}</td>
                     <td class="px-2 py-3 border-0">{{customer.address}}</td>
-                    <td class="px-2 py-3 border-0"><app-tag-label>{{customer.status}}</app-tag-label></td>
+                    <td class="px-2 py-3 border-0"><app-tag-label>{{getStatus(customer.status)}}</app-tag-label></td>
                     <td class="px-2 py-3 border-0">{{customer.birthDate}}</td>
                     <td class="px-2 py-3 border-0">{{customer.gender}}</td>
                 </tr>
@@ -31,9 +31,11 @@
     </table>
 </section>
 
+<pagination-controls class="fw-semibold pagination p-0 m-0" (pageChange)="paginaAtual = $event" [maxSize]="5" [responsive]="true" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+
 
 <ng-template #modalCustomersComponent>
     <app-modal-base title="Novo cliente">
-        <app-modal-customers></app-modal-customers>
+        <app-modal-customers (reloadCustomers)="reloadCustomers()"></app-modal-customers>
     </app-modal-base>
 </ng-template>

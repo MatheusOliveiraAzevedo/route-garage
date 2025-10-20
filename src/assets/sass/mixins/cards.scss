@@ -1,0 +1,14 @@
+.card {
+  .card-header {
+    background-color: var(--colorBaseQuaternary);
+    min-height: 60px;
+    .card-title {
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+  .card-footer {
+    min-height: 60px;
+    background-color: var(--colorBaseQuaternary);
+  }
+}

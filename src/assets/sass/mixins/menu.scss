@@ -1,0 +1,29 @@
+.icon-selected {
+  display: none;
+}
+
+.item-side-menu {
+  color: var(--colorLinksSideMenu);
+  border-radius: 5px;
+  font-weight: 400;
+  padding: 5px 8px;
+  transition: background-color 0.3s;
+}
+
+.item-side-menu.active {
+    color: var(--colorTextButons);
+    font-weight: bold;
+    background-color: var(--colorBaseTertiary);
+    .icon-selected {
+        display: inline;
+    }
+}
+
+.noArrowDropdown[ngbDropdownToggle]::after {
+  display: none !important;
+}
+
+.positionOnScreen {
+  position: absolute;
+  bottom: 300px;
+}
