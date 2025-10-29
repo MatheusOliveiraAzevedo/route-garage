@@ -1,11 +1,12 @@
 <div class="w-100 d-flex justify-content-end">
-    <app-button-default (click)="openModal()">Novo cliente</app-button-default>
+    <app-button-default (click)="openModal('add')">Novo cliente</app-button-default>
 </div>
 
 <section class="card rounded-4 table-responsive w-100">
     <table class="table m-0">
         <thead>
             <tr class="text-muted bg-light">
+                <th class="p-2 min-w-50px text-center">Ação</th>
                 <th class="p-2 min-w-150px">Nome</th>
                 <th class="p-2 min-w-150px">Email</th>
                 <th class="p-2 min-w-150px">Telefone</th>
@@ -16,26 +17,47 @@
             </tr>
         </thead>
         <tbody>
-            @for (customer of customers | paginate: { itemsPerPage: 8, currentPage: paginaAtual };; track $index) {
-                <tr class="bg-hover-primary bg-teste">
-                    <td class="px-2 py-3 border-0">{{customer.name}}</td>
-                    <td class="px-2 py-3 border-0">{{customer.email}}</td>
-                    <td class="px-2 py-3 border-0">{{customer.phone}}</td>
-                    <td class="px-2 py-3 border-0">{{customer.address}}</td>
-                    <td class="px-2 py-3 border-0"><app-tag-label>{{getStatus(customer.status)}}</app-tag-label></td>
-                    <td class="px-2 py-3 border-0">{{customer.birthDate}}</td>
-                    <td class="px-2 py-3 border-0">{{customer.gender}}</td>
-                </tr>
+            @if (customers.length !== 0) {
+                @for (customer of customers | paginate: { itemsPerPage: 8, currentPage: paginaAtual };; track $index) {
+                    <tr class="bg-hover-primary bg-table">
+                        <td class="px-2 py-3 border-0">
+                            <div ngbDropdown class="bg-hover-secondary rounded-4">
+                                <lucide-icon ngbDropdownToggle class="noArrowDropdown  p-2" name="ellipsis" [size]="35"></lucide-icon>
+
+                                <div class="rounded-4 bg-light" style="z-index: 2000;" ngbDropdownMenu container="body">
+                                    <button class="d-flex justify-content-between align-items-center btn btn-primary border-0 rounded-0 bg-hover-primary" ngbDropdownItem (click)="openModal('edit', customer)">Editar <lucide-icon name="square-pen" [size]="20"/></button>
+                                    <button class="d-flex justify-content-between align-items-center btn btn-primary border-0 rounded-0 bg-hover-primary" ngbDropdownItem (click)="[]">Excluir <lucide-icon name="trash-2" [size]="20"/></button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-2 py-3 border-0">{{customer.name}}</td>
+                        <td class="px-2 py-3 border-0">{{customer.email}}</td>
+                        <td class="px-2 py-3 border-0">{{customer.phone}}</td>
+                        <td class="px-2 py-3 border-0">{{customer.address}}</td>
+                        <td class="px-2 py-3 border-0"><app-tag-label>{{getStatus(customer.status)}}</app-tag-label></td>
+                        <td class="px-2 py-3 border-0">{{customer.birthDate}}</td>
+                        <td class="px-2 py-3 border-0">{{customer.gender}}</td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
+    
 </section>
 
-<pagination-controls class="fw-semibold pagination p-0 m-0" (pageChange)="paginaAtual = $event" [maxSize]="5" [responsive]="true" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+@if (customers.length === 0) {
+    <div class="d-flex flex-column align-items-center justify-content-center gap-2">
+        <lucide-icon name="list-x" [size]="40"></lucide-icon>
+        <span class="fw-normal">Lista de clientes vazia</span>
+    </div>
+} @else {
+    <pagination-controls class="fw-semibold pagination p-0 m-0" (pageChange)="paginaAtual = $event" [maxSize]="5" [responsive]="true" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+}
+
 
 
 <ng-template #modalCustomersComponent>
     <app-modal-base title="Novo cliente">
-        <app-modal-customers (reloadCustomers)="reloadCustomers()"></app-modal-customers>
+        <app-modal-customers (reloadCustomers)="reloadCustomers()" [opt]="optModalCustomers" [customerSelected]="customerSelected"></app-modal-customers>
     </app-modal-base>
 </ng-template>

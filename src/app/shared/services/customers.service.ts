@@ -22,7 +22,7 @@ export class CustomersService {
     return this.http.post<Customers>(this.api, customers);
   }
 
-  editCustomers(customers: Customers, id): Observable<Customers> {
+  updateCustomers(customers: Customers, id): Observable<Customers> {
     return this.http.patch<Customers>(`${this.api}/${id}`, customers);
   }
 

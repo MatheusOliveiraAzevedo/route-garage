@@ -1,5 +1,9 @@
 .table-responsive {
   overflow-x: auto;
+  overflow-y: hidden;
+  .dropdown-menu.show {
+    z-index: 3000 !important;
+  }
 }
 
 
@@ -7,3 +11,4 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+

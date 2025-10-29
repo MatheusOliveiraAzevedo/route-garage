@@ -1,5 +1,5 @@
-import { Component, HostBinding, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, HostBinding, HostListener, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+import { NgbDropdown, NgbDropdownToggle, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomersService } from '../../../shared/services/customers.service';
 import { catchError, firstValueFrom, of } from 'rxjs';
 import { Customers, statusCustomers } from '../../../shared/models/customers-models';
@@ -20,6 +20,10 @@ export class TableCustomersComponent implements OnInit {
   @ViewChild('modalCustomersComponent') modaCustomers!: TemplateRef<any>
   customers: Customers[] = []
   paginaAtual = 1
+  dropdownTop = 0
+  dropdownLeft = 0
+  optModalCustomers: 'add' | 'edit' = 'add'
+  customerSelected?: Customers
 
 
   async ngOnInit() {
@@ -30,7 +34,9 @@ export class TableCustomersComponent implements OnInit {
     this.customers = await firstValueFrom(this.customersService.getCustomers().pipe(catchError(() => {return of([])})))
   }
 
-  openModal() {
+  openModal(opt: 'add' | 'edit', customerSelected?: Customers) {
+    this.customerSelected = customerSelected;
+    this.optModalCustomers = opt
     const modalRef = this.modalService.open(this.modaCustomers, {
       size: 'xl'
     });
@@ -43,5 +49,6 @@ export class TableCustomersComponent implements OnInit {
   getStatus(status: string) {
     return statusCustomers[status]
   }
+
 
 }

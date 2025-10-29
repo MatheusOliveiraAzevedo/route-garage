@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomersService } from '../../../shared/services/customers.service';
 import { catchError, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Customers } from '../../../shared/models/customers-models';
 
 @Component({
   selector: 'app-modal-customers',
@@ -18,39 +19,42 @@ export class ModalCustomersComponent implements OnInit {
   ) { }
 
   @Output() reloadCustomers = new EventEmitter()
+  opt = input.required<'add' | 'edit'>()
+  customerSelected = input<Customers>()
   formCustomers!: FormGroup
 
     ngOnInit(): void {
+      console.log(this.customerSelected())
       this.loadForm()
     }
 
     loadForm() {
       this.formCustomers = this.fb.group({
-        name: [null, Validators.compose([
+        name: [this.opt() === 'edit' ? this.customerSelected()?.name : null, Validators.compose([
           Validators.required
         ])],
-        email: [null, Validators.compose([
+        email: [this.opt() === 'edit' ? this.customerSelected()?.email : null, Validators.compose([
           Validators.required
         ])],
-        phone: [null, Validators.compose([
+        phone: [this.opt() === 'edit' ? this.customerSelected()?.phone : null, Validators.compose([
           Validators.required
         ])],
-        address: [null, Validators.compose([
+        address: [this.opt() === 'edit' ? this.customerSelected()?.address : null, Validators.compose([
           Validators.required
         ])],
-        status: [null, Validators.compose([
+        status: [this.opt() === 'edit' ? this.customerSelected()?.status : null, Validators.compose([
           Validators.required
         ])],
-        birthDate: [null, Validators.compose([
+        birthDate: [this.opt() === 'edit' ? this.customerSelected()?.birthDate : null, Validators.compose([
           Validators.required
         ])],
-        gender: [null, Validators.compose([
+        gender: [this.opt() === 'edit' ? this.customerSelected()?.gender : null, Validators.compose([
           Validators.required
         ])],
-        cpf: [null, Validators.compose([
+        cpf: [this.opt() === 'edit' ? this.customerSelected()?.cpf : null, Validators.compose([
           Validators.required
         ])],
-        rg: [null, Validators.compose([
+        rg: [this.opt() === 'edit' ? this.customerSelected()?.rg : null, Validators.compose([
           Validators.required
         ])]
       })
@@ -62,18 +66,36 @@ export class ModalCustomersComponent implements OnInit {
         this.formCustomers.markAllAsTouched();
         return;
       }
-      this.customersService.addCustomers(this.formCustomers.value).pipe(
-        catchError(() => {
-          alert('Não foi possível cadastrar o cliente')
-          return of(null)
+
+      if (this.opt() === 'edit') {
+        this.customersService.updateCustomers(this.formCustomers.value, this.customerSelected()?.id).pipe(
+          catchError(() => {
+            alert('Não foi possível atualizar o cliente')
+            return of(null)
+          })
+        )
+        .subscribe(() => {
+          this.reloadCustomers.emit();
+          alert('Cliente atualizado com sucesso!');
+          this.modalService.dismissAll();
+          this.formCustomers.reset()
         })
-      )
-      .subscribe(() => {
-        this.reloadCustomers.emit();
-        alert('Cliente cadastrado com sucesso!');
-        this.modalService.dismissAll();
-        this.formCustomers.reset()
-      })
+        return;
+      } else if (this.opt() === 'add') {
+        this.customersService.addCustomers(this.formCustomers.value).pipe(
+          catchError(() => {
+            alert('Não foi possível cadastrar o cliente')
+            return of(null)
+          })
+        )
+        .subscribe(() => {
+          this.reloadCustomers.emit();
+          alert('Cliente cadastrado com sucesso!');
+          this.modalService.dismissAll();
+          this.formCustomers.reset()
+        })
+      }
+
     }
 
 }

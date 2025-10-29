@@ -16,6 +16,8 @@ import { ModalBaseComponent } from './modals/modal-base/modal-base.component';
 import { ModalCustomersComponent } from './modals/modal-customers/modal-customers.component';
 import { FooterModalComponent } from './modals/footer-modal/footer-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-angular';
 
 
 
@@ -40,7 +42,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     ɵInternalFormsSharedModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbDropdownModule,
+    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 })
 ],
   exports: [
     ButtonDefaultComponent,
