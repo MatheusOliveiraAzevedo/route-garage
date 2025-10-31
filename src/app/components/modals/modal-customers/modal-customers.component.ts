@@ -4,6 +4,7 @@ import { CustomersService } from '../../../shared/services/customers.service';
 import { catchError, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Customers } from '../../../shared/models/customers-models';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-modal-customers',
@@ -15,7 +16,8 @@ export class ModalCustomersComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private customersService: CustomersService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private messageService: MessageService
   ) { }
 
   @Output() reloadCustomers = new EventEmitter()
@@ -62,7 +64,7 @@ export class ModalCustomersComponent implements OnInit {
 
     save() {
       if (this.formCustomers.invalid) {
-        alert('Preencha todos os campos')
+        this.showToast('Atenção', 'Preencha todos os campos', 'warn')
         this.formCustomers.markAllAsTouched();
         return;
       }
@@ -97,5 +99,9 @@ export class ModalCustomersComponent implements OnInit {
       }
 
     }
+
+  showToast(sumary: string, detail: string, severity: string) {
+    this.messageService.add({ severity: severity, summary: sumary, detail: detail, key: 'br', life: 3000 });
+  }
 
 }

@@ -18,6 +18,8 @@ import { FooterModalComponent } from './modals/footer-modal/footer-modal.compone
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-angular';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -44,7 +46,8 @@ import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbDropdownModule,
-    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 })
+    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 }),
+    ToastModule
 ],
   exports: [
     ButtonDefaultComponent,
@@ -59,6 +62,9 @@ import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-
     TableCustomersComponent,
     TagLabelComponent,
     ModalBaseComponent
+  ],
+  providers: [
+    MessageService
   ]
 })
 export class ComponentsModule { }

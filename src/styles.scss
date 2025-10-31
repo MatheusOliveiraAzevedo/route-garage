@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 // Sobrescreva as variáveis antes de importar o Bootstrap
 
+/* Tema visual — escolha o que quiser, exemplo: Lara Light Blue */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+/* Estilos base do PrimeNG (necessário) */
+@import "primeng/resources/primeng.css";
+
+/* Ícones usados pelo PrimeNG */
+@import "primeicons/primeicons.css";
 
 @import './assets/sass/custom.scss';
 

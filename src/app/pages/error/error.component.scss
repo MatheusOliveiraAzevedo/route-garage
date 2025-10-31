@@ -4,6 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('/assets/backgrounds/bg-login.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 span {
@@ -16,7 +20,7 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     button {
         font-size: 20px;
     }
