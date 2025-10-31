@@ -72,13 +72,14 @@ export class ModalCustomersComponent implements OnInit {
       if (this.opt() === 'edit') {
         this.customersService.updateCustomers(this.formCustomers.value, this.customerSelected()?.id).pipe(
           catchError(() => {
-            alert('Não foi possível atualizar o cliente')
+            this.showToast('Erro', 'Não foi possível atualizar o cliente', 'error')
             return of(null)
           })
         )
         .subscribe(() => {
           this.reloadCustomers.emit();
-          alert('Cliente atualizado com sucesso!');
+          console.log('editado')
+          this.showToast('Concluido', 'Cliente atualizado com sucesso!', 'success')
           this.modalService.dismissAll();
           this.formCustomers.reset()
         })
@@ -86,13 +87,13 @@ export class ModalCustomersComponent implements OnInit {
       } else if (this.opt() === 'add') {
         this.customersService.addCustomers(this.formCustomers.value).pipe(
           catchError(() => {
-            alert('Não foi possível cadastrar o cliente')
+            this.showToast('Erro', 'Não foi possível atualizar o cliente', 'error')
             return of(null)
           })
         )
         .subscribe(() => {
           this.reloadCustomers.emit();
-          alert('Cliente cadastrado com sucesso!');
+          this.showToast('Concluido', 'Cliente adicionado com sucesso!', 'success')
           this.modalService.dismissAll();
           this.formCustomers.reset()
         })

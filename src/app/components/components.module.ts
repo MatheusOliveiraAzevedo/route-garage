@@ -16,10 +16,8 @@ import { ModalBaseComponent } from './modals/modal-base/modal-base.component';
 import { ModalCustomersComponent } from './modals/modal-customers/modal-customers.component';
 import { FooterModalComponent } from './modals/footer-modal/footer-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-angular';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 
 
 
@@ -46,8 +44,7 @@ import { MessageService } from 'primeng/api';
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbDropdownModule,
-    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 }),
-    ToastModule
+    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 })
 ],
   exports: [
     ButtonDefaultComponent,
@@ -63,8 +60,6 @@ import { MessageService } from 'primeng/api';
     TagLabelComponent,
     ModalBaseComponent
   ],
-  providers: [
-    MessageService
-  ]
+  providers: []
 })
 export class ComponentsModule { }
