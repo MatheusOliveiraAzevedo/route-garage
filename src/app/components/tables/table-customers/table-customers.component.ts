@@ -2,7 +2,7 @@ import { Component, HostBinding, HostListener, OnInit, Renderer2, TemplateRef, V
 import { NgbDropdown, NgbDropdownToggle, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomersService } from '../../../shared/services/customers.service';
 import { catchError, firstValueFrom, of } from 'rxjs';
-import { Customers, statusCustomers } from '../../../shared/models/customers-models';
+import { Customers, optionCustomersModal, statusCustomers } from '../../../shared/models/customers-models';
 
 @Component({
   selector: 'app-table-customers',
@@ -18,11 +18,11 @@ export class TableCustomersComponent implements OnInit {
 
   @HostBinding('class') class = 'd-flex flex-column align-items-center gap-4 h-100 w-100'
   @ViewChild('modalCustomersComponent') modaCustomers!: TemplateRef<any>
-  customers: Customers[] = []
+  customers!: Customers[]
   paginaAtual = 1
   dropdownTop = 0
   dropdownLeft = 0
-  optModalCustomers: 'add' | 'edit' = 'add'
+  optModalCustomers: optionCustomersModal = 'add'
   customerSelected?: Customers
 
 
@@ -31,7 +31,9 @@ export class TableCustomersComponent implements OnInit {
   }
 
   async getCustomers() {
-    this.customers = await firstValueFrom(this.customersService.getCustomers().pipe(catchError(() => {return of([])})))
+    setTimeout(async () => {
+      this.customers = await firstValueFrom(this.customersService.getCustomers().pipe(catchError(() => {return of([])})))
+    }, 200);
   }
 
   openModal(opt: 'add' | 'edit', customerSelected?: Customers) {

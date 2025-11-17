@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,12 @@ import { MessageService } from 'primeng/api';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastModule
+    ToastModule,
+    ComponentsModule
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

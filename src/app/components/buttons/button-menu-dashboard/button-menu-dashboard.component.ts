@@ -12,7 +12,7 @@ export class ButtonMenuDashboardComponent {
     private router: Router
   ) { }
 
-  @HostBinding('class') class = 'm-2';
+  @HostBinding('class') class = '';
   urlGoTo = input<string>();
 
   goTo() {

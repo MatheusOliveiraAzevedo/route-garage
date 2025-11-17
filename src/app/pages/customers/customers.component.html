@@ -1,3 +1,14 @@
-<app-header-pages title="Clientes"></app-header-pages>
+<app-header-pages title="Clientes">
+    <section class="d-flex justify-content-center gap-4" contentButtonChangeStorage>
+        <app-button-default (click)="openModal('add')">Novo cliente</app-button-default>
+    </section>
+</app-header-pages>
 
 <app-table-customers></app-table-customers>
+
+
+<ng-template #modalCustomersComponent>
+    <app-modal-base title="Novo cliente">
+        <app-modal-customers (reloadCustomers)="reloadCustomers()" [opt]="optModalCustomers" [customerSelected]="customerSelected"></app-modal-customers>
+    </app-modal-base>
+</ng-template>

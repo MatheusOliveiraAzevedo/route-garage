@@ -1,73 +1,48 @@
 <form [formGroup]="formCustomers" class=" card-body row g-4" ngbAutofocus>
-    <fieldset class="form-floating position-relative col-lg-12 mb-2">
+    <fieldset class="form-floating position-relative col-lg-12">
         <input class="form-control {{formCustomers.get('name')?.touched && formCustomers.get('name')?.invalid ? 'is-invalid' : ''}}" type="text" id="name" placeholder="Digite o nome do veiculo" formControlName="name">
         <label class="form-label ps-4" for="name">Nome</label>
-       @if (formCustomers.get('name')?.touched && formCustomers.get('name')?.invalid) {
-           <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-       } 
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+    <fieldset class="form-floating col-lg-6">
         <input class="form-control {{formCustomers.get('email')?.touched && formCustomers.get('email')?.invalid ? 'is-invalid' : ''}}" type="email" id="email" placeholder="Digite o nome do veiculo" formControlName="email">
         <label class="form-label ps-4" for="email">E-mail</label>
-        @if (formCustomers.get('email')?.touched && formCustomers.get('email')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
-    </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+
+    </fieldset>    <fieldset class="form-floating col-lg-6">
         <input class="form-control {{formCustomers.get('phone')?.touched && formCustomers.get('phone')?.invalid ? 'is-invalid' : ''}}" type="phone" id="phone" placeholder="Digite o nome do veiculo" formControlName="phone">
         <label class="form-label ps-4" for="phone">Telefone</label>
-        @if (formCustomers.get('phone')?.touched && formCustomers.get('phone')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
+
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
-        <input class="form-control {{formCustomers.get('address')?.touched && formCustomers.get('address')?.invalid ? 'is-invalid' : ''}}" type="text" id="address" placeholder="Digite o nome do veiculo" formControlName="address">
-        <label class="form-label ps-4" for="address">Endereço</label>
-        @if (formCustomers.get('address')?.touched && formCustomers.get('address')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
+    <fieldset class="form-floating col-lg-6">
+        <input class="form-control {{formCustomers.get('address')?.touched && formCustomers.get('address')?.invalid ? 'is-invalid' : ''}}" type="text" id="address" placeholder="Digite o nome do veiculo" formControlName="address">        <label class="form-label ps-4" for="address">Endereço</label>
+
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+    <fieldset class="form-floating col-lg-6">
         <select class="form-select {{formCustomers.get('status')?.touched && formCustomers.get('status')?.invalid ? 'is-invalid' : ''}}" id="status" formControlName="status">
             <option value="ACTIVE">Ativo</option>
-            <option value="INACTIVE">Inativo</option>
-        </select>
+            <option value="INACTIVE">Inativo</option>        </select>
         <label class="form-label ps-4" for="status">Status</label>
-        @if (formCustomers.get('status')?.touched && formCustomers.get('status')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
+
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+    <fieldset class="form-floating col-lg-6">
         <input class="form-control {{formCustomers.get('birthDate')?.touched && formCustomers.get('birthDate')?.invalid ? 'is-invalid' : ''}}" type="date" id="birthDate" placeholder="Digite o ano de fabricação do veiculo" formControlName="birthDate">
         <label class="form-label ps-4" for="birthDate">Data de nascimento</label>
-        @if (formCustomers.get('birthDate')?.touched && formCustomers.get('birthDate')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
+
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
-        <select class="form-select {{formCustomers.get('gender')?.touched && formCustomers.get('gender')?.invalid ? 'is-invalid' : ''}}" id="gender" formControlName="gender">
+    <fieldset class="form-floating col-lg-6">        <select class="form-select {{formCustomers.get('gender')?.touched && formCustomers.get('gender')?.invalid ? 'is-invalid' : ''}}" id="gender" formControlName="gender">
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Feminino</option>
         </select>
         <label class="form-label ps-4" for="gender">Genero</label>
-        @if (formCustomers.get('gender')?.touched && formCustomers.get('gender')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
-    </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+
+    </fieldset>    <fieldset class="form-floating col-lg-6">
         <input class="form-control {{formCustomers.get('cpf')?.touched && formCustomers.get('cpf')?.invalid ? 'is-invalid' : ''}}" type="number" id="cpf" placeholder="Digite o nome do veiculo" formControlName="cpf">
         <label class="form-label ps-4" for="cpf">CPF</label>
-        @if (formCustomers.get('cpf')?.touched && formCustomers.get('cpf')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
+
     </fieldset>
-    <fieldset class="form-floating col-lg-6 mb-2">
+    <fieldset class="form-floating col-lg-6">
         <input class="form-control {{formCustomers.get('rg')?.touched && formCustomers.get('rg')?.invalid ? 'is-invalid' : ''}}" type="number" id="rg" placeholder="Digite o nome do veiculo" formControlName="rg">
         <label class="form-label ps-4" for="rg">RG</label>
-        @if (formCustomers.get('rg')?.touched && formCustomers.get('rg')?.invalid) {
-            <span class="position-absolute text-danger fs-9">Obrigatorio</span>
-        } 
-    </fieldset>
-</form>
+
+    </fieldset></form>
 
 <app-footer-modal (confirm)="save()"></app-footer-modal>

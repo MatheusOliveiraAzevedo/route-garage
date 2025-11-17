@@ -12,3 +12,13 @@ export interface Car {
     description: string;
     image: string;
 }
+
+
+export enum statusCar {
+  "DISPONIVEL" = 'Disponível',
+  "VENDIDO" = 'Vendido',
+  "RESERVADO" = 'Reservado',
+  "EM_MANUTENCAO" = 'Em manutenção',
+}
+
+export type optionStorageModal = 'add' | 'edit'

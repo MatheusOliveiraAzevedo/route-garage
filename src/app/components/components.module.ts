@@ -16,8 +16,15 @@ import { ModalBaseComponent } from './modals/modal-base/modal-base.component';
 import { ModalCustomersComponent } from './modals/modal-customers/modal-customers.component';
 import { FooterModalComponent } from './modals/footer-modal/footer-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-angular';
+import { NgbDropdownModule, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
+import { Car, Ellipsis, ListX, LucideAngularModule, Plus, SquarePen, Trash2 } from 'lucide-angular';
+import { EmptyListComponent } from './empty-list/empty-list.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { TableStorageComponent } from './tables/table-storage/table-storage.component';
+import { CardPlaceholderComponent } from './placeholders/card-placeholder/card-placeholder.component';
+import { TablePlaceholderComponent } from './placeholders/table-placeholder/table-placeholder.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { ModalConfirmComponent } from './modals/modal-confirm/modal-confirm.component';
 
 
 
@@ -36,7 +43,12 @@ import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-
     TagLabelComponent,
     ModalBaseComponent,
     ModalCustomersComponent,
-    FooterModalComponent
+    FooterModalComponent,
+    EmptyListComponent,
+    TableStorageComponent,
+    CardPlaceholderComponent,
+    TablePlaceholderComponent,
+    ModalConfirmComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +56,10 @@ import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbDropdownModule,
-    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2 })
+    LucideAngularModule.pick({ ListX, Ellipsis, SquarePen, Trash2, Car, Plus }),
+    NgbSlide,
+    MatTooltipModule,
+    NgApexchartsModule
 ],
   exports: [
     ButtonDefaultComponent,
@@ -58,7 +73,13 @@ import { Ellipsis, ListX, LucideAngularModule, SquarePen, Trash2 } from 'lucide-
     ModalStorageComponent,
     TableCustomersComponent,
     TagLabelComponent,
-    ModalBaseComponent
+    ModalBaseComponent,
+    EmptyListComponent,
+    TableStorageComponent,
+    CardPlaceholderComponent,
+    TablePlaceholderComponent,
+    ModalCustomersComponent,
+    ModalConfirmComponent
   ],
   providers: []
 })

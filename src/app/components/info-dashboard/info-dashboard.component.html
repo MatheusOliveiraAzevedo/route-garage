@@ -1,17 +1,38 @@
-<div class="d-flex flex-wrap justify-content-start gap-4 px-4 py-3">
+<section class="d-flex flex-column align-items-center justify-content-center w-100 bg-light-secondary rounded-3">
+    <h2 class="p-3 m-0 fw-semibold fs-11">Veículos por status</h2>
+    <div class="row gx-0 gap-4 p-3 pb-4 w-100">
+        
+        @for (status of itensStatus; track $index) {
+            <div class="bg-light-primary border-min-primary rounded-3 shadow flex-grow-1 col-12 col-sm-4 col-xxl-2 px-2 py-3">
+                <div class="card-body text-center">
+                    <h6 class="fs-10 m-0 pb-2 fw-semibold text-white">{{status.name}}</h6>
+                    <span class="d-flex flex-nowrap align-items-baseline justify-content-center gap-2">
+                        <h1 class="m-0 fs-13 fw-bold text-primary">{{status.count}}</h1>
+                    </span>
+                </div>
+            </div>        
+        }
+    </div>
 
-    @for (itemDashboard of mockInfoDashboard; track $index) {
-        <div class="card shadow-sm border-0 h-100 min-w-300px flex-grow-1">
-        <div class="card-body text-center">
-            <h6 class="text-muted">{{itemDashboard.title}}</h6>
-            <div class="d-flex flex-nowrap align-items-baseline justify-content-center gap-2">
-                <h3 class="fw-semibold">{{itemDashboard.prefix}}</h3>
-                <h2 class="fw-bold">{{itemDashboard.value}}</h2>
-                <h3 class="fw-semibold">{{itemDashboard.suffix}}</h3>
+</section>
+
+<section class="d-flex flex-column align-items-center justify-content-center w-100 bg-light-secondary rounded-3">
+    <h2 class="p-3 m-0 fw-semibold fs-11">Totais</h2>
+    <div class="row gx-0 gap-4 p-3 pb-4 w-100">
+
+        
+        @for (itemDashboard of mockInfoDashboard; track $index) {
+            <div class="bg-light-primary border-min-primary rounded-3 shadow flex-grow-1 col-12 col-sm-4 col-xxl-2 px-2 py-3">
+                <div class="card-body text-center">
+                    <h6 class="fs-10 m-0 pb-2 text-white fw-semibold">{{itemDashboard.title}}</h6>
+                    <span class="d-flex flex-nowrap align-items-baseline justify-content-center gap-2">
+                        <h3 class="fw-semibold m-0 text-success">{{itemDashboard.prefix}}</h3>
+                        <h1 class="m-0 fs-13 fw-bold text-success">{{itemDashboard.value}}</h1>
+                        <h3 class="fw-semibold m-0 text-success">{{itemDashboard.suffix}}</h3>
+                    </span>
+                </div>
             </div>
-        </div>
-        </div>
-    
-    }
-
-</div>
+            
+        }
+    </div>
+</section>

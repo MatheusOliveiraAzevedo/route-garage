@@ -7,7 +7,7 @@ import { Component, HostBinding, input } from '@angular/core';
 })
 export class HeaderPagesComponent {
 
-  @HostBinding('class') class = 'd-flex align-items-center justify-content-start px-1 w-100';
+  @HostBinding('class') class = 'd-flex align-items-center justify-content-between px-1 w-100';
   title = input.required<string>();
   showButtonBack = input<boolean>(false);
 

@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { StorageComponent } from './storage.component';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from "../../components/components.module";
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule } from '@angular/forms';
+import { LucideAngularModule } from "lucide-angular";
+import { MatTooltip } from "@angular/material/tooltip";
 
 
 
@@ -16,7 +20,11 @@ import { ComponentsModule } from "../../components/components.module";
             component: StorageComponent
         }
     ]),
-    ComponentsModule
+    ComponentsModule,
+    SelectButtonModule,
+    FormsModule,
+    LucideAngularModule,
+    MatTooltip
 ]
 })
 export class StorageModule { }

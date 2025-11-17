@@ -1,3 +1,33 @@
-<app-header-pages title="Estoque"></app-header-pages>
+<app-header-pages title="Estoque">
+    <section class="d-flex justify-content-center gap-4" contentButtonChangeStorage>
+        <div class="btn-group">
+            @for (button of stateOptions; track $index) {
+                <button class="btn btn-primary" [ngClass]="optButtonStorage == button.value ? 'active' : ''" (click)="changeOption(button.value)">{{button.label}}</button>
+            }
+        </div>
+        <div class="w-100 d-flex justify-content-end">
+            <app-button-default (click)="openModal()" matTooltip="Novo veiculo" matTooltipPosition="above">
+                <lucide-icon name="plus"></lucide-icon>
+                <lucide-icon name="car" [size]="20"></lucide-icon>
+            </app-button-default>
+        </div>
+    </section>
+</app-header-pages>
 
-<app-list-storage [storageCar]="storageCar"></app-list-storage>
+@if (storageCar) {
+    @if (optButtonStorage) {
+        <app-list-storage [storageCar]="storageCar" (reloadStorage)="getStorage()"></app-list-storage>
+    } @else {
+        <app-table-storage [storageCar]="storageCar"></app-table-storage>
+    }
+} @else {
+    <app-card-placeholder></app-card-placeholder>
+}
+
+
+
+<ng-template #modalStorage>
+    <app-modal-base title="Novo veiculo">
+        <app-modal-storage opt="add" (reloadStorage)="getStorage()"></app-modal-storage>
+    </app-modal-base>
+</ng-template>

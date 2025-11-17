@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Customers } from '../models/customers-models';
 
 @Injectable({
@@ -13,6 +13,12 @@ export class CustomersService {
   ) { }
 
   api = 'http://localhost:3000/customers';
+
+  getCountCustomers(): Observable<number> {
+    return this.http.get<Customers[]>(this.api).pipe(
+      map(customers => customers.length)
+    );
+  }
 
   getCustomers(): Observable<Customers[]> {
     return this.http.get<Customers[]>(this.api);

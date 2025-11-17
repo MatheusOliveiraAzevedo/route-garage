@@ -1,4 +1,4 @@
-import { Component, HostBinding, input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, HostBinding, input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { Car } from '../../shared/models/storage-models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,6 +15,7 @@ export class ListStorageComponent implements OnInit{
 
   @HostBinding('class') class = 'd-flex flex-wrap gap-3'
   @ViewChild('modalStorage') modalStorage!: TemplateRef<any>
+  @Output() reloadStorage = new EventEmitter()
   storageCar = input.required<Car[]>()
 
   ngOnInit(): void {
@@ -25,6 +26,10 @@ export class ListStorageComponent implements OnInit{
     this.modalService.open(this.modalStorage, {
       size: 'xl'
     });
+  }
+
+  reload() {
+    this.reloadStorage.emit()
   }
 
 }

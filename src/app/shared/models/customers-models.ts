@@ -21,3 +21,5 @@ export enum statusCustomers {
 export enum genderCustomers {
     
 }
+
+export type optionCustomersModal = 'add' | 'edit'

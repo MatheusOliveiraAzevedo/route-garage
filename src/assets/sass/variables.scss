@@ -83,7 +83,7 @@ body.theme-dark {
   // cores base
   --colorBasePrimary: #8e0e0e;
   --colorBaseSecondary: #7d7d7d82;
-  --colorBaseTertiary: #672323;
+  --colorBaseTertiary: var(--bs-primary);
   --colorBaseQuaternary: #00000031;
   --colorBgContent: #000000d2;
   // cores base

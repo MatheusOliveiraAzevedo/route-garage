@@ -1,0 +1,35 @@
+<div class="table-responsive rounded-4 p-0 m-0">
+    <table id="table-gateways" class="table align-middle gy-4 placeholder-glow m-0">
+        <thead>
+            <tr class="fw-bolder text-muted bg-light">
+                @for (i of [].constructor(5); track $index) {
+                    <th class="ps-4 min-w-250px text-center rounded">
+                        <span class="placeholder col-5"></span>
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (i of [].constructor(8); track $index) {
+                <tr class="">
+                    <td class="ps-4">
+                        <div class="d-flex align-items-center">
+                            <div class="symbol symbol-50px me-5">
+                                <span class="placeholder-image-50 placeholder col-5 rounded"></span>
+                            </div>
+                            <span class="placeholder col-5"></span>
+                        </div>
+                    </td>
+                    @for (i of [].constructor(4); track $index) {
+                        <td>
+                            <span class="text-gray-900 fw-bolder text-hover-primary text-center d-block mb-1 fs-6">
+                                <span class="placeholder col-5"></span>
+                            </span>
+                        </td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

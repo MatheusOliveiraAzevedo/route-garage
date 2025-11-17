@@ -1,7 +1,3 @@
-<div class="w-100 d-flex justify-content-end">
-    <app-button-default (click)="openModal()">Novo veiculo</app-button-default>
-</div>
-
 <section class="container">
     <div class="row g-4">
         @if (storageCar() && storageCar().length > 0) {   
@@ -10,6 +6,8 @@
                     <app-card-storage [carInfo]="car"></app-card-storage>
                 </div>
             }
+        }@else {
+            <app-empty-list>Lista do estoque vazia</app-empty-list>
         }
     </div>
 </section>
@@ -17,6 +15,6 @@
 
 <ng-template #modalStorage>
     <app-modal-base title="Novo veiculo">
-        <app-modal-storage></app-modal-storage>
+        <app-modal-storage opt="add" (reloadStorage)="reload()"></app-modal-storage>
     </app-modal-base>
 </ng-template>

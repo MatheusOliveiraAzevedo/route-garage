@@ -12,3 +12,40 @@
   margin: 0 !important;
 }
 
+
+tbody {
+  tr, td {
+    vertical-align: middle;
+  }
+}
+
+thead {
+  tr, th {
+    vertical-align: middle;
+  }
+}
+
+
+// paginator
+.ngx-pagination.ng-star-inserted {
+  .ng-star-inserted {
+    &:not(.current) {
+      color: var(--colorTextMuted); 
+    }
+    &.current {
+      font-weight: bold;
+      background: var(--bs-primary) !important;
+      border-radius: 5px;
+      span {
+        color: white !important;
+      }
+    }
+  }
+
+  .pagination-previous.ng-star-inserted, .pagination-next.ng-star-inserted {
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+
+}

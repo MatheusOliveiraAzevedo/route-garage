@@ -1,0 +1,12 @@
+.btn-group {
+    .btn {
+    }
+    
+    .btn.btn-primary {
+        border: none;
+        background-color: $danger-light;
+    }
+    .btn.btn-primary.active {
+        background-color: $primary;
+    }
+}

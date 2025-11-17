@@ -1,46 +1,52 @@
-<form [formGroup]="formStorage" class="row g-4">
+<form [formGroup]="formStorage" class="card-body row g-4 row g-4">
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="name" placeholder="Digite o nome do veiculo" formControlName="name">
+        <input class="form-control" [ngClass]="formStorage.get('name')?.touched && formStorage.get('name')?.invalid ? 'is-invalid' : ''" type="text" id="name" placeholder="Digite o nome do veiculo" formControlName="name">
         <label class="form-label ps-4" for="name">Nome</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="brand" placeholder="Digite a marca do veiculo" formControlName="brand">
+        <input class="form-control" [ngClass]="formStorage.get('brand')?.touched && formStorage.get('brand')?.invalid ? 'is-invalid' : ''" type="text" id="brand" placeholder="Digite a marca do veiculo" formControlName="brand">
         <label class="form-label ps-4" for="brand">Marca</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="model" placeholder="Digite o modelo do veiculo" formControlName="model">
+        <input class="form-control" [ngClass]="formStorage.get('model')?.touched && formStorage.get('model')?.invalid ? 'is-invalid' : ''" type="text" id="model" placeholder="Digite o modelo do veiculo" formControlName="model">
         <label class="form-label ps-4" for="model">Modelo</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="color" placeholder="Digite o nome do veiculo" formControlName="color">
+        <input class="form-control" [ngClass]="formStorage.get('color')?.touched && formStorage.get('color')?.invalid ? 'is-invalid' : ''" type="text" id="color" placeholder="Digite o nome do veiculo" formControlName="color">
         <label class="form-label ps-4" for="color">Cor</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="number" id="yearFabrication" placeholder="Digite o ano de fabricação do veiculo" formControlName="yearFabrication">
+        <input class="form-control" [ngClass]="formStorage.get('yearFabrication')?.touched && formStorage.get('yearFabrication')?.invalid ? 'is-invalid' : ''" type="number" id="yearFabrication" placeholder="Digite o ano de fabricação do veiculo" formControlName="yearFabrication">
         <label class="form-label ps-4" for="yearFabrication">Ano de fabricação</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="number" id="yearModel" placeholder="Digite o ano do veiculo" formControlName="yearModel">
+        <input class="form-control" [ngClass]="formStorage.get('yearModel')?.touched && formStorage.get('yearModel')?.invalid ? 'is-invalid' : ''" type="number" id="yearModel" placeholder="Digite o ano do veiculo" formControlName="yearModel">
         <label class="form-label ps-4" for="yearModel">Ano do veiculo</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="number" id="km" placeholder="Digite a quilometragem do veiculo" formControlName="km">
+        <input class="form-control" [ngClass]="formStorage.get('km')?.touched && formStorage.get('km')?.invalid ? 'is-invalid' : ''" type="number" id="km" placeholder="Digite a quilometragem do veiculo" formControlName="km">
         <label class="form-label ps-4" for="km">Quilometragem</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="number" id="price" placeholder="Digite o preco do veiculo" formControlName="price">
+        <input class="form-control" [ngClass]="formStorage.get('price')?.touched && formStorage.get('price')?.invalid ? 'is-invalid' : ''" type="number" id="price" placeholder="Digite o preco do veiculo" formControlName="price">
         <label class="form-label ps-4" for="price">Preco</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="description" placeholder="Digite a descricao do veiculo" formControlName="description">
+        <input class="form-control" [ngClass]="formStorage.get('description')?.touched && formStorage.get('description')?.invalid ? 'is-invalid' : ''" type="text" id="description" placeholder="Digite a descricao do veiculo" formControlName="description">
         <label class="form-label ps-4" for="description">Descricao</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="text" id="status" placeholder="Digite o status do veiculo" formControlName="status">
+        <select class="form-control" [ngClass]="formStorage.get('status')?.touched && formStorage.get('status')?.invalid ? 'is-invalid' : ''" name="status" id="status" formControlName="status" placeholder="Informe o status do veiculo">
+            @for (status of statusCar; track $index) {
+                <option [value]="status.id">{{status.name}}</option>
+            }
+        </select>
         <label class="form-label ps-4" for="status">Status</label>
     </fieldset>
     <fieldset class="form-floating col-lg-6">
-        <input class="form-control" type="file" id="image" placeholder="Digite a imagem do veiculo" formControlName="image">
-        <label class="form-label ps-4" for="image">Imagem</label>
+        <input class="form-control" [ngClass]="formStorage.get('image')?.touched && formStorage.get('image')?.invalid ? 'is-invalid' : ''" type="text" id="image" placeholder="Digite a imagem do veiculo" formControlName="image">
+        <label class="form-label ps-4" for="image">Url da imagem</label>
     </fieldset>
 </form>
+
+<app-footer-modal (confirm)="save()"></app-footer-modal>

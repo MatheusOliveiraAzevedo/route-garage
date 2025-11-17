@@ -1,7 +1,7 @@
 <aside class="d-flex flex-column align-items-start justify-content-start gap-2 p-3 h-100">
     <nav class="d-flex flex-column align-items-start justify-content-start gap-2 w-100 flex-grow-1">
         @for (link of links; track $index) {
-            <a class="item-side-menu text-decoration-none w-100" [routerLink]="link.route" routerLinkActive="active">
+            <a class="item-side-menu fs-10 text-decoration-none w-100" [routerLink]="link.route" routerLinkActive="active">
                 {{link.name}}
                 <!-- <i class="icon-selected bi bi-caret-left-fill"></i> -->
             </a>
@@ -14,7 +14,7 @@
             <div class="d-flex flex-row gap-3">
                 <app-image-default class="w-20 d-flex flex-column" urlImage="assets/avatar/user-blank.png" altImage="Imagem do logo Routa Garage"></app-image-default>
                 <span class="d-flex flex-column align-items-start justify-content-center gap-1">
-                    <h3 class="text-center fs-9 text-break">Nome do usuario</h3>
+                    <h3 class="text-center m-0 fw-semibold fs-9 text-break">Nome do usuario</h3>
                     <small class="fs-9 text-break">emaildousuario&#64;routagarage.com.br</small>
                 </span>
             </div>

@@ -12,3 +12,7 @@
     background-color: var(--colorBaseQuaternary);
   }
 }
+
+.border-min-primary {
+  border: 0.5px solid var(--bs-primary);
+}

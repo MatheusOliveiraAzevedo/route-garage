@@ -1,25 +1,29 @@
 export const mockInfoDashboard = [
     {
-        title: 'Total de Vendas',
-        value: 150000,
+        title: 'Vendas',
+        id: 'all_sales',
+        value: 0,
         prefix: 'R$',
         suffix: null
     },
     {
-        title: 'Novos Clientes',
-        value: 53,
+        title: 'Clientes',
+        id: 'all_customers',
+        value: 0,
         prefix: null,
         suffix: 'un.'
     },
     {
-        title: 'Produtos em Estoque',
-        value: 44,
+        title: 'Veículos',
+        id: 'all_cars',
+        value: 0,
         prefix: null,
         suffix: 'un.'
     },
     {
-        title: 'Fornecedores Ativos',
-        value: 65,
+        title: 'Fornecedores',
+        id: 'all_suppliers',
+        value: 0,
         prefix: null,
         suffix: null
     }
